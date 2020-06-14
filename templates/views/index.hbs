@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>head_section}}
+<body>
+<div class="main-content">
+    {{>header}}
+    <p>Use this site to get your weather</p>
+
+    <form id="search_location_form">
+        <input id="search_location_input" placeholder="Enter Search Location">
+        <button>Search</button>
+    </form>
+
+    <p id="error_message" class="error-text" style="visibility: collapse">None</p>
+    <p id="location_text" style="visibility: hidden"></p>
+    <p id="weather_text" style="visibility: hidden"></p>
+</div>
+{{>footer}}
+<script src="/js/client.js"></script>
+</body>
+</html>
