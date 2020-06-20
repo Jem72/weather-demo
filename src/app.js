@@ -60,7 +60,7 @@ app.get('/weather', (req, res) => {
                 res.send(setupError(error))
             }
             if ((undefined !== latitude) && (undefined !== longitude)) {
-                forecast(latitude, longitude, (error, {weather_descriptions, weather_icons, temperature, feelslike} = {}) => {
+                forecast(latitude, longitude, (error, {weather_descriptions, weather_icons, temperature, feelslike, pressure, humidity} = {}) => {
                     if (undefined !== error) {
                         res.send(setupError(error))
                     } else if (weather_descriptions) {
@@ -77,7 +77,9 @@ app.get('/weather', (req, res) => {
                             description: weather_descriptions[0],
                             icon: weather_icon,
                             temperature,
-                            feels_like: feelslike
+                            feels_like: feelslike,
+                            pressure,
+                            humidity
                         }
                         const responseLocation = {latitude, longitude, location}
 
